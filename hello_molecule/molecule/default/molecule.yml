@@ -1,0 +1,22 @@
+---
+dependency:
+  name: galaxy
+  options:
+    requirements-file: requirements.yml
+# driver:
+#   options:
+#     managed: false
+#     login_cmd_template: >-
+#       podman exec
+#       -e COLUMNS={columns}
+#       -e LINES={lines}
+#       -e SHELL=bash
+#       -e TERM=xterm
+#       -ti {instance} bash
+platforms:
+  - name: instance6
+    image: quay.io/centos/centos:stream8
+# provisioner:
+#   name: ansible
+# verifier:
+#   name: ansible

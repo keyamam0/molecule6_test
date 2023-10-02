@@ -1,0 +1,21 @@
+- hosts: all
+  # remote_user: ec2-user
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Wait for SSH connection
+      ansible.builtin.wait_for_connection:
+
+    - name: Gather fact
+      ansible.builtin.setup:
+
+    - name: Httpd Install
+      ansible.builtin.dnf:
+        name: httpd
+        state: present
+
+    - name: Httpd Launch
+      ansible.builtin.systemd:
+        name: httpd.service
+        enabled: true
+        state: started
